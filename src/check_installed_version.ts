@@ -51,8 +51,11 @@ async function getDiffInstalledVersion(
     (v) => v.link,
   );
   requiredVersion.sort();
+  const normalizedRequiredVersion: string[] = normalizeVersion(
+    requiredVersion,
+  );
 
-  debug(`Required version: ${requiredVersion.join(", ")}`);
+  debug(`Required version: ${normalizedRequiredVersion.join(", ")}`);
 
   const installed: string[] | undefined = await getInstalledXcodeVersions();
   if (installed === undefined) {
@@ -63,11 +66,29 @@ async function getDiffInstalledVersion(
   debug(`Installed version: ${installed.join(", ")}`);
 
   // Compare installed and required version
-  const diff: string[] = requiredVersion.filter((v) => !installed.includes(v));
+  const diff: string[] = normalizedRequiredVersion.filter((v) =>
+    !installed.includes(v)
+  );
 
   debug(
-    `requiredVersion.filter((v) => !installed.includes(v)): ${diff.join(", ")}`,
+    `normalizedRequiredVersion.filter((v) => !installed.includes(v)): ${
+      diff.join(", ")
+    }`,
   );
 
   return diff;
+}
+
+function normalizeVersion(input: string[]): string[] {
+  const trimed: string[] = input.map((v) => v.trim());
+
+  // if not contained period, return add ".0"
+  const normalized: string[] = trimed.map((v) => {
+    if (v.indexOf(".") === -1) {
+      return `${v}.0`;
+    }
+    return v;
+  });
+
+  return normalized;
 }

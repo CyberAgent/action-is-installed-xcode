@@ -25479,18 +25479,33 @@ async function getDiffInstalledVersion(githubHostedInstalledVersion) {
     (v) => v.link
   );
   requiredVersion.sort();
-  (0, import_core2.debug)(`Required version: ${requiredVersion.join(", ")}`);
+  const normalizedRequiredVersion = normalizeVersion(
+    requiredVersion
+  );
+  (0, import_core2.debug)(`Required version: ${normalizedRequiredVersion.join(", ")}`);
   const installed = await getInstalledXcodeVersions();
   if (installed === void 0) {
     throw new Error("Cannot get installed Xcode versions");
   }
   installed.sort();
   (0, import_core2.debug)(`Installed version: ${installed.join(", ")}`);
-  const diff = requiredVersion.filter((v) => !installed.includes(v));
+  const diff = normalizedRequiredVersion.filter(
+    (v) => !installed.includes(v)
+  );
   (0, import_core2.debug)(
-    `requiredVersion.filter((v) => !installed.includes(v)): ${diff.join(", ")}`
+    `normalizedRequiredVersion.filter((v) => !installed.includes(v)): ${diff.join(", ")}`
   );
   return diff;
+}
+function normalizeVersion(input) {
+  const trimed = input.map((v) => v.trim());
+  const normalized = trimed.map((v) => {
+    if (v.indexOf(".") === -1) {
+      return `${v}.0`;
+    }
+    return v;
+  });
+  return normalized;
 }
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
