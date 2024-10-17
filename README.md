@@ -1,18 +1,18 @@
-# cycloud-io/action-is-installed-xcode
+# CyberAgent/action-is-installed-xcode
 
-[![CI](https://github.com/cycloud-io/action-is-installed-xcode/actions/workflows/ci.yml/badge.svg)](https://github.com/cycloud-io/action-is-installed-xcode/actions/workflows/ci.yml)
+[![CI](https://github.com/CyberAgent/action-is-installed-xcode/actions/workflows/ci.yml/badge.svg)](https://github.com/CyberAgent/action-is-installed-xcode/actions/workflows/ci.yml)
 
-cycloud-io/action-is-installed-xcode checks to see if the same Xcode version as GitHub-hosted is installed.
+CyberAgent/action-is-installed-xcode checks to see if the same Xcode version as GitHub-hosted is installed.
 
 ## Usage
 
 ```yaml
-- uses: cycloud-io/action-is-installed-xcode@v0
+- uses: CyberAgent/action-is-installed-xcode@v0
   with:
     success-on-miss: false  # Optional
 ```
 
-Please see [actions.yml](https://github.com/cycloud-io/action-is-installed-xcode/blob/main/action.yml) about input parameters.
+Please see [actions.yml](https://github.com/CyberAgent/action-is-installed-xcode/blob/main/action.yml) about input parameters.
 
 ## Motivation
 
@@ -28,3 +28,7 @@ This action checks whether the self-hosted runner is in the same state as the Gi
 deno fmt
 deno task bundle
 ```
+
+## Acknowledgement
+
+This repository generated from [Kesin11/deno-action-template](https://github.com/Kesin11/deno-action-template). Thank you for great work!
