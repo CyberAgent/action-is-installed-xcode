@@ -1,6 +1,10 @@
 # CyberAgent/action-is-installed-xcode
 
-[![CI](https://github.com/CyberAgent/action-is-installed-xcode/actions/workflows/ci.yml/badge.svg)](https://github.com/CyberAgent/action-is-installed-xcode/actions/workflows/ci.yml)
+|      OS      |                                                                                                               Status                                                                                                               |
+| :----------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| macos-latest | [![Test - macOS-latest](https://github.com/CyberAgent/action-is-installed-xcode/actions/workflows/ci-macos-latest.yaml/badge.svg)](https://github.com/CyberAgent/action-is-installed-xcode/actions/workflows/ci-macos-latest.yaml) |
+|   macos-14   |       [![Test - macOS-14](https://github.com/CyberAgent/action-is-installed-xcode/actions/workflows/ci-macos-14.yaml/badge.svg)](https://github.com/CyberAgent/action-is-installed-xcode/actions/workflows/ci-macos-14.yaml)       |
+|   macos-15   |       [![Test - macOS-15](https://github.com/CyberAgent/action-is-installed-xcode/actions/workflows/ci-macos-15.yaml/badge.svg)](https://github.com/CyberAgent/action-is-installed-xcode/actions/workflows/ci-macos-15.yaml)       |
 
 CyberAgent/action-is-installed-xcode checks to see if the same Xcode version as GitHub-hosted is installed.
 

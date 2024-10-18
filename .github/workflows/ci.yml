@@ -30,21 +30,3 @@ jobs:
             git diff
             exit 1
           fi
-  test:
-    strategy:
-      matrix:
-        os:
-          - macos-latest
-          - macos-14
-          - macos-15
-      fail-fast: false
-    runs-on: ${{ matrix.os }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup-deno-with-cache
-      - id: test
-        run: deno test -A
-      - name: Run self
-        uses: ./
-        with:
-          success-on-miss: false
