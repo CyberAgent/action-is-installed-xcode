@@ -1,0 +1,20 @@
+name: Test - macOS-15
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test-macos-15:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-deno-with-cache
+      - id: test
+        run: deno test -A
+      - name: Run self
+        uses: ./
+        with:
+          success-on-miss: false
